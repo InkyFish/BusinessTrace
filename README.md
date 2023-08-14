@@ -70,7 +70,7 @@
             "template": {}
           },
           "examine(int,long,java.lang.Integer,java.lang.String)": {
-            "template": "template1.ftl"
+            "template": {}
           },
           "approve*": {
             "template": {}
