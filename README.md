@@ -1,6 +1,6 @@
 # BusinessTrace
 
-一个完整的业务流程往往是跨时间、跨服务甚至跨团队的，对于业务的流程追踪往往是在代码中编写相应的记录逻辑，侵入性过高，通过 skywalking 获得灵感，使用java agen + asm 实现无侵入式的、可配置的业务追踪项目。
+ 一个完整的业务流程往往是跨时间、跨服务甚至跨团队的，对于业务的流程追踪往往是在代码中编写相应的记录逻辑，侵入性过高，通过 skywalking 获得灵感，使用java agen + asm 实现无侵入式的、可配置的业务追踪项目。
 
 // TODO git死活传不上去。。。代码敬请期待。。。
 
@@ -101,9 +101,9 @@
 - `bizConfig.bizName`:  即样例配置文件中的`请假流程、报销流程`所在的位置直属于`bizConfig`，意思是该属性的配置属于`请假流程`或`报销流程`业务流的配置
 - `bizConfig.bizName.target.classPath`: 即样例配置文件中的`com.xxx.model1.controller.*`所在位置，直属于`bizConfig.bizName.target`的字段，key 为类的通配符，value 为该类下的方法等配置
 - `bizConfig.bizName.target.classPath.method`: 即样例配置文件中的`method*()`所在位置，直属于`bizConfig.bizName.target.classPath`的字段，key 为方法签名，方法名支持通配符，参数不支持。当只有方法名而没有 `()`时，会按照方法名对该类下所有方法进行匹配，当存在 `()`时，若`()`内部没有参数，则在按照方法名匹配后取无参数的方法，若内部有参数，则严格按照参数顺序以及类型进行匹配。
-- `bizConfig.bizName.target.classPath.method.template`: 参数填充模板，采用的 freeMarker 模板引擎，语法同 freeMarker
+- `bizConfig.bizName.target.classPath.method.template`: 参数填充模板，采用的 freeMarker 模板引擎，语法同 freeMarker。`arg1`为第一个参数`arg2`为第二个参数，以此类推。样例中 field5、field6、field7 的写法分别为调用 HeaderStore 类的静态无参方法、静态字段（必须 public 修饰）、静态有参方法。
 
-## 怎么用
+## 怎么用。
 
 启动命令改为
 
